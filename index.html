@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AaroniaMC | Offizielles Netzwerk</title>
+    <style>
+        body {
+            background-color: #151515;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: #0b0b0b;
+            border-bottom: 4px solid #ffaa00;
+            padding: 50px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            color: #55ff55;
+            font-size: 3.5rem;
+            margin: 0;
+            text-shadow: 3px 3px #005500;
+            letter-spacing: 2px;
+        }
+
+        .subtitle {
+            color: #ffaa00;
+            font-size: 1.4rem;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        .main-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .welcome-box {
+            background-color: #222222;
+            border: 2px dashed #444;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            font-size: 1.2rem;
+            color: #ddd;
+        }
+
+        .hub-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .hub-card {
+            background-color: #2a2a2a;
+            border: 3px solid #444;
+            border-radius: 12px;
+            width: 260px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .hub-card:hover {
+            transform: translateY(-8px);
+            border-color: #55ff55;
+        }
+
+        .card-title {
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .card-desc {
+            color: #bbbbbb;
+            font-size: 1rem;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            height: 60px;
+        }
+
+        .hub-btn {
+            display: block;
+            color: #000000;
+            border: none;
+            padding: 12px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: opacity 0.1s;
+        }
+
+        .hub-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Individuelle Farben für die Buttons */
+        .btn-play { background-color: #55ff55; border-bottom: 4px solid #00aa00; }
+        .btn-discord { background-color: #5865F2; border-bottom: 4px solid #3c45a5; color: #fff; }
+        .btn-shop { background-color: #ffaa00; border-bottom: 4px solid #aa7700; }
+
+        .ip-badge {
+            background-color: #111;
+            padding: 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 1rem;
+            color: #ffff55;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        footer {
+            margin-top: 80px;
+            padding: 30px;
+            background-color: #0b0b0b;
+            color: #666666;
+            font-size: 0.9rem;
+            border-top: 3px solid #222;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>AARONIA MC NETWORK</h1>
+        <div class="subtitle">Willkommen auf unserem offiziellen Hub!</div>
+    </header>
+
+    <div class="main-container">
+        <div class="welcome-box">
+            👋 Schön, dass du da bist! Hier findest du alle wichtigen Links zu unserem Minecraft-Projekt.
+        </div>
+
+        <div class="hub-grid">
+
+            <!-- Card 1: Minecraft Server -->
+            <div class="hub-card">
+                <div class="card-title" style="color: #55ff55;">🎮 Server</div>
+                <div class="card-desc">Komm auf unseren Server und spiele mit der Community im Survival-Modus!</div>
+                <div class="hub-btn btn-play" onclick="navigator.clipboard.writeText('play.aaroniamc.de'); alert('Server-IP kopiert! Trage sie in Minecraft ein.')">IP Kopieren</div>
+                <div class="ip-badge">play.aaroniamc.de</div>
+            </div>
+
+            <!-- Card 2: Discord -->
+            <div class="hub-card">
+                <div class="card-title" style="color: #5865F2;">💬 Discord</div>
+                <div class="card-desc">Tritt unserem Discord-Server bei, um zu chatten und Support zu erhalten!</div>
+                <a href="https://dsc.gg" target="_blank" class="hub-btn btn-discord">Beitreten</a>
+            </div>
+
+            <!-- Card 3: Web-Shop -->
+            <div class="hub-card">
+                <div class="card-title" style="color: #ffaa00;">💰 Shop</div>
+                <div class="card-desc">Hol dir den VIP-Rang für Ingame-Coins und schalte /fly frei!</div>
+                <a href="https://aaroniamc.de" class="hub-btn btn-shop">Zum Shop</a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2026 AaroniaMC &bull; Alle Rechte vorbehalten. &bull; Powered by GitHub Pages
+    </footer>
+
+</body>
+</html>
