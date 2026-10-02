@@ -6,20 +6,29 @@
 
     <title>AaroniaMC | Minecraft Network</title>
 
-    <meta name="description" content="Willkommen beim offiziellen AaroniaMC Minecraft Network. Spiele mit unserer Community und tritt unserem Discord bei.">
+    <meta
+        name="description"
+        content="Willkommen beim offiziellen AaroniaMC Minecraft Network."
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
         :root {
-            --green: #55ff55;
-            --green-dark: #19c719;
+            --blue: #3b82f6;
+            --blue-light: #60a5fa;
+            --blue-dark: #2563eb;
             --discord: #5865f2;
-            --bg: #070b09;
-            --card: rgba(17, 24, 20, 0.72);
+
+            --bg: #050914;
+            --card: rgba(13, 20, 35, 0.72);
             --border: rgba(255, 255, 255, 0.09);
-            --text: #f5f7f6;
-            --muted: #9ba6a0;
+
+            --text: #f5f7ff;
+            --muted: #9ba6b8;
         }
 
         * {
@@ -34,59 +43,92 @@
 
         body {
             min-height: 100vh;
-            background:
-                radial-gradient(circle at 15% 20%, rgba(85, 255, 85, 0.12), transparent 30%),
-                radial-gradient(circle at 85% 80%, rgba(88, 101, 242, 0.12), transparent 30%),
-                var(--bg);
             color: var(--text);
             font-family: 'Inter', sans-serif;
+            background:
+                radial-gradient(
+                    circle at 15% 20%,
+                    rgba(59, 130, 246, 0.18),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 85% 80%,
+                    rgba(88, 101, 242, 0.15),
+                    transparent 30%
+                ),
+                var(--bg);
+
             overflow-x: hidden;
         }
 
-        /* Animated background */
+        /* =========================
+           BACKGROUND
+        ========================= */
+
         body::before {
             content: "";
             position: fixed;
             inset: 0;
             pointer-events: none;
             opacity: 0.25;
+
             background-image:
-                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+                linear-gradient(
+                    rgba(255, 255, 255, 0.025) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255, 255, 255, 0.025) 1px,
+                    transparent 1px
+                );
+
             background-size: 50px 50px;
-            mask-image: linear-gradient(to bottom, black, transparent);
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent
+                );
         }
 
         .glow {
             position: fixed;
-            width: 400px;
-            height: 400px;
+            width: 450px;
+            height: 450px;
             border-radius: 50%;
-            filter: blur(120px);
+            filter: blur(130px);
             pointer-events: none;
             z-index: -1;
         }
 
-        .glow.green {
-            background: rgba(85, 255, 85, 0.12);
-            top: -150px;
-            left: -100px;
-        }
-
         .glow.blue {
-            background: rgba(88, 101, 242, 0.12);
-            right: -150px;
-            bottom: -150px;
+            top: -180px;
+            left: -120px;
+            background: rgba(59, 130, 246, 0.18);
         }
 
-        /* Header */
+        .glow.discord {
+            right: -160px;
+            bottom: -160px;
+            background: rgba(88, 101, 242, 0.15);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
         header {
             min-height: 72vh;
+
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
+
             padding: 80px 20px 50px;
+
+            text-align: center;
             position: relative;
         }
 
@@ -98,88 +140,117 @@
         .badge {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 8px 15px;
-            margin-bottom: 25px;
-            border: 1px solid rgba(85, 255, 85, 0.25);
+            gap: 9px;
+
+            padding: 9px 16px;
+            margin-bottom: 26px;
+
+            border: 1px solid rgba(59, 130, 246, 0.3);
             border-radius: 999px;
-            background: rgba(85, 255, 85, 0.07);
-            color: #aaffaa;
+
+            background: rgba(59, 130, 246, 0.08);
+
+            color: #9cc7ff;
+
             font-size: 0.82rem;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
 
         .status-dot {
-            width: 7px;
-            height: 7px;
+            width: 8px;
+            height: 8px;
+
             border-radius: 50%;
-            background: var(--green);
-            box-shadow: 0 0 12px var(--green);
+
+            background: var(--blue-light);
+
+            box-shadow:
+                0 0 10px var(--blue),
+                0 0 20px rgba(59, 130, 246, 0.5);
+
             animation: pulse 2s infinite;
         }
 
         h1 {
-            font-size: clamp(3rem, 8vw, 6.8rem);
-            line-height: 0.95;
-            font-weight: 800;
-            letter-spacing: -5px;
-            margin-bottom: 25px;
+            font-size: clamp(3.2rem, 8vw, 7rem);
+            line-height: 0.9;
 
-            background: linear-gradient(
-                135deg,
-                #ffffff 20%,
-                #8aff8a 55%,
-                #35e835
-            );
+            font-weight: 800;
+            letter-spacing: -6px;
+
+            margin-bottom: 28px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffffff 15%,
+                    #93c5fd 50%,
+                    #3b82f6 90%
+                );
 
             -webkit-background-clip: text;
             background-clip: text;
+
             color: transparent;
 
-            text-shadow: 0 0 60px rgba(85, 255, 85, 0.12);
+            text-shadow:
+                0 0 60px rgba(59, 130, 246, 0.15);
         }
 
         .hero p {
             max-width: 650px;
             margin: auto;
+
             color: var(--muted);
+
             font-size: 1.15rem;
             line-height: 1.8;
         }
 
         .hero-highlight {
-            color: #ffffff;
-            font-weight: 600;
+            color: white;
+            font-weight: 700;
         }
 
-        /* Main */
+        /* =========================
+           MAIN
+        ========================= */
+
         main {
             max-width: 1050px;
-            margin: 0 auto;
-            padding: 0 20px 80px;
+            margin: auto;
+
+            padding:
+                0 20px 90px;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 36px;
         }
 
         .section-header span {
-            color: var(--green);
-            font-size: 0.8rem;
-            font-weight: 700;
+            color: var(--blue-light);
+
+            font-size: 0.78rem;
+            font-weight: 800;
+
             letter-spacing: 2px;
             text-transform: uppercase;
         }
 
         .section-header h2 {
             margin-top: 10px;
+
             font-size: 2rem;
             letter-spacing: -1px;
         }
 
-        /* Cards */
+        /* =========================
+           CARDS
+        ========================= */
+
         .hub-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -187,14 +258,30 @@
         }
 
         .hub-card {
+            --accent: var(--blue);
+
             position: relative;
+
             padding: 30px;
-            border: 1px solid var(--border);
+
+            border:
+                1px solid var(--border);
+
             border-radius: 22px;
-            background: var(--card);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.035),
+                    rgba(255,255,255,0.01)
+                ),
+                var(--card);
+
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
+
             overflow: hidden;
+
             transition:
                 transform 0.35s ease,
                 border-color 0.35s ease,
@@ -203,135 +290,223 @@
 
         .hub-card::before {
             content: "";
+
             position: absolute;
-            width: 180px;
-            height: 180px;
-            top: -100px;
-            right: -100px;
+
+            width: 220px;
+            height: 220px;
+
+            top: -130px;
+            right: -130px;
+
             border-radius: 50%;
+
             background: var(--accent);
-            filter: blur(80px);
+
+            filter: blur(90px);
+
             opacity: 0.12;
-            transition: opacity 0.35s ease;
+
+            transition:
+                opacity 0.35s ease;
         }
 
         .hub-card:hover {
-            transform: translateY(-8px);
-            border-color: var(--accent);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            transform: translateY(-9px);
+
+            border-color:
+                rgba(59, 130, 246, 0.55);
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.4),
+                0 0 35px rgba(59, 130, 246, 0.08);
         }
 
         .hub-card:hover::before {
-            opacity: 0.25;
+            opacity: 0.28;
         }
 
-        .server-card {
-            --accent: var(--green);
-        }
-
-        .discord-card {
-            --accent: var(--discord);
-        }
+        /* =========================
+           ICON
+        ========================= */
 
         .icon {
-            width: 55px;
-            height: 55px;
+            width: 58px;
+            height: 58px;
+
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 16px;
+
             margin-bottom: 22px;
+
+            border-radius: 17px;
+
             font-size: 1.7rem;
-            background: color-mix(in srgb, var(--accent) 12%, transparent);
-            border: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+
+            background:
+                rgba(59, 130, 246, 0.1);
+
+            border:
+                1px solid rgba(59, 130, 246, 0.25);
+
+            box-shadow:
+                inset 0 0 20px rgba(59, 130, 246, 0.04);
         }
 
         .card-title {
             font-size: 1.45rem;
             font-weight: 700;
+
             margin-bottom: 10px;
         }
 
         .card-desc {
             color: var(--muted);
+
             line-height: 1.7;
             font-size: 0.95rem;
+
             margin-bottom: 24px;
         }
 
-        /* Server IP */
+        /* =========================
+           SERVER IP
+        ========================= */
+
         .ip-box {
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             gap: 15px;
+
             padding: 13px 15px;
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255,255,255,0.07);
+
+            background:
+                rgba(0, 0, 0, 0.28);
+
+            border:
+                1px solid rgba(255,255,255,0.07);
+
             border-radius: 12px;
-            margin-bottom: 15px;
         }
 
         .ip {
-            color: #d7ffd7;
+            color: #bfdbfe;
+
             font-family: monospace;
             font-size: 0.95rem;
         }
 
         .copy-button {
             border: none;
-            background: var(--green);
-            color: #061006;
-            padding: 9px 13px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--blue-light),
+                    var(--blue)
+                );
+
+            color: white;
+
+            padding: 9px 14px;
+
             border-radius: 8px;
+
             font-weight: 700;
+
             cursor: pointer;
-            transition: 0.2s ease;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
         .copy-button:hover {
             transform: scale(1.05);
-            box-shadow: 0 0 20px rgba(85,255,85,0.3);
+
+            box-shadow:
+                0 0 25px rgba(59, 130, 246, 0.35);
         }
 
-        /* Buttons */
+        /* =========================
+           DISCORD BUTTON
+        ========================= */
+
         .hub-btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+
+            gap: 9px;
+
             width: 100%;
+
             padding: 14px 18px;
+
             border-radius: 11px;
+
             text-decoration: none;
+
             font-weight: 700;
-            transition: 0.25s ease;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
         }
 
         .discord-btn {
-            background: var(--discord);
+            background:
+                linear-gradient(
+                    135deg,
+                    #6672ff,
+                    #5865f2
+                );
+
             color: white;
-            box-shadow: 0 8px 25px rgba(88, 101, 242, 0.18);
+
+            box-shadow:
+                0 8px 30px
+                rgba(88, 101, 242, 0.18);
         }
 
         .discord-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 12px 35px rgba(88, 101, 242, 0.35);
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 14px 40px
+                rgba(88, 101, 242, 0.35);
         }
 
-        /* Info strip */
+        /* =========================
+           INFO
+        ========================= */
+
         .info-strip {
             margin-top: 22px;
+
             padding: 20px;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             gap: 10px;
+
             text-align: center;
+
             color: var(--muted);
-            border: 1px solid var(--border);
+
+            border:
+                1px solid var(--border);
+
             border-radius: 16px;
-            background: rgba(255,255,255,0.025);
+
+            background:
+                rgba(255,255,255,0.025);
+
             font-size: 0.9rem;
         }
 
@@ -339,25 +514,37 @@
             color: white;
         }
 
-        /* Footer */
+        /* =========================
+           FOOTER
+        ========================= */
+
         footer {
-            border-top: 1px solid rgba(255,255,255,0.07);
+            border-top:
+                1px solid rgba(255,255,255,0.07);
+
             padding: 30px 20px;
+
             text-align: center;
-            color: #68726c;
+
+            color: #687384;
+
             font-size: 0.8rem;
         }
 
         footer span {
-            color: #9aa49e;
+            color: #9ba9bd;
         }
 
-        /* Animations */
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
         @keyframes fadeUp {
             from {
                 opacity: 0;
                 transform: translateY(25px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -371,20 +558,24 @@
             }
 
             50% {
-                opacity: 0.5;
+                opacity: 0.45;
                 transform: scale(0.75);
             }
         }
 
-        /* Mobile */
+        /* =========================
+           MOBILE
+        ========================= */
+
         @media (max-width: 700px) {
+
             header {
                 min-height: 65vh;
                 padding-top: 60px;
             }
 
             h1 {
-                letter-spacing: -3px;
+                letter-spacing: -4px;
             }
 
             .hero p {
@@ -405,6 +596,7 @@
         }
 
         @media (max-width: 430px) {
+
             .ip-box {
                 flex-direction: column;
                 align-items: stretch;
@@ -419,10 +611,14 @@
 
 <body>
 
-    <div class="glow green"></div>
+    <!-- Hintergrund -->
     <div class="glow blue"></div>
+    <div class="glow discord"></div>
 
+
+    <!-- HERO -->
     <header>
+
         <div class="hero">
 
             <div class="badge">
@@ -430,62 +626,92 @@
                 OFFIZIELLES NETWORK
             </div>
 
-            <h1>AARONIA<br>MC</h1>
+            <h1>
+                AARONIA<br>
+                MC
+            </h1>
 
             <p>
-                Willkommen bei <span class="hero-highlight">AaroniaMC</span> —
+                Willkommen bei
+                <span class="hero-highlight">AaroniaMC</span> —
                 deinem Minecraft Network für eine aktive Community,
                 gemeinsame Abenteuer und jede Menge Spielspaß.
             </p>
 
         </div>
+
     </header>
 
+
+    <!-- CONTENT -->
     <main>
 
         <div class="section-header">
-            <span>Alles Wichtige auf einen Blick</span>
-            <h2>Dein Aaronia Hub</h2>
+
+            <span>
+                Alles Wichtige auf einen Blick
+            </span>
+
+            <h2>
+                Dein Aaronia Hub
+            </h2>
+
         </div>
+
 
         <div class="hub-grid">
 
-            <!-- Minecraft Server -->
-            <div class="hub-card server-card">
 
-                <div class="icon">🎮</div>
+            <!-- SERVER -->
+            <div class="hub-card">
+
+                <div class="icon">
+                    🎮
+                </div>
 
                 <div class="card-title">
                     Minecraft Server
                 </div>
 
                 <div class="card-desc">
-                    Betritt unseren Server, entdecke die Welt von Aaronia
-                    und spiele gemeinsam mit unserer Community.
+                    Betritt unseren Server, entdecke die Welt
+                    von Aaronia und spiele gemeinsam mit
+                    unserer Community.
                 </div>
 
                 <div class="ip-box">
-                    <span class="ip">play.aaroniamc.de</span>
 
-                    <button class="copy-button" onclick="copyIP()">
+                    <span class="ip">
+                        play.aaroniamc.de
+                    </span>
+
+                    <button
+                        class="copy-button"
+                        onclick="copyIP()"
+                    >
                         Kopieren
                     </button>
+
                 </div>
 
             </div>
 
-            <!-- Discord -->
-            <div class="hub-card discord-card">
 
-                <div class="icon">💬</div>
+            <!-- DISCORD -->
+            <div class="hub-card">
+
+                <div class="icon">
+                    💬
+                </div>
 
                 <div class="card-title">
                     Discord Community
                 </div>
 
                 <div class="card-desc">
-                    Vernetze dich mit anderen Spielern, erhalte Support,
-                    erfahre Neuigkeiten und verpasse keine Events.
+                    Vernetze dich mit anderen Spielern,
+                    erhalte Support, erfahre Neuigkeiten
+                    und verpasse keine Events.
                 </div>
 
                 <a
@@ -502,35 +728,70 @@
 
         </div>
 
+
         <div class="info-strip">
-            ✨ <span><strong>AaroniaMC</strong> — Gemeinsam spielen. Gemeinsam erleben.</span>
+
+            ✦
+
+            <span>
+                <strong>AaroniaMC</strong>
+                — Gemeinsam spielen. Gemeinsam erleben.
+            </span>
+
         </div>
 
     </main>
 
+
+    <!-- FOOTER -->
     <footer>
-        &copy; 2026 <span>AaroniaMC</span> · Alle Rechte vorbehalten.
+
+        &copy; 2026
+        <span>AaroniaMC</span>
+        · Alle Rechte vorbehalten.
+
     </footer>
 
+
     <script>
+
         function copyIP() {
+
             const ip = "play.aaroniamc.de";
 
-            navigator.clipboard.writeText(ip)
-                .then(() => {
-                    const button = document.querySelector(".copy-button");
-                    const oldText = button.textContent;
+            navigator.clipboard
+                .writeText(ip)
 
-                    button.textContent = "✓ Kopiert!";
+                .then(() => {
+
+                    const button =
+                        document.querySelector(".copy-button");
+
+                    const oldText =
+                        button.textContent;
+
+                    button.textContent =
+                        "✓ Kopiert!";
 
                     setTimeout(() => {
-                        button.textContent = oldText;
+
+                        button.textContent =
+                            oldText;
+
                     }, 1800);
+
                 })
+
                 .catch(() => {
-                    alert("Server-IP: " + ip);
+
+                    alert(
+                        "Server-IP: " + ip
+                    );
+
                 });
+
         }
+
     </script>
 
 </body>
