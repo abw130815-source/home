@@ -34,7 +34,8 @@
             --discord: #5865f2;
 
             --bg: #02050c;
-            --card: rgba(9, 16, 29, 0.70);
+
+            --card: rgba(9, 16, 29, 0.78);
 
             --border: rgba(255, 255, 255, 0.09);
 
@@ -53,9 +54,11 @@
             padding: 0;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
+
 
         body {
             min-height: 100vh;
@@ -87,149 +90,7 @@
 
 
         /* =========================================================
-           CUSTOM CURSOR
-        ========================================================= */
-
-        body {
-            cursor: default;
-        }
-
-        .cursor-dot {
-            position: fixed;
-
-            width: 7px;
-            height: 7px;
-
-            border-radius: 50%;
-
-            background: white;
-
-            box-shadow:
-                0 0 10px white,
-                0 0 25px var(--blue-light);
-
-            pointer-events: none;
-
-            z-index: 99999;
-
-            transform: translate(-50%, -50%);
-
-            mix-blend-mode: screen;
-        }
-
-
-        .cursor-ring {
-            position: fixed;
-
-            width: 38px;
-            height: 38px;
-
-            border-radius: 50%;
-
-            border:
-                1px solid rgba(96, 165, 250, 0.45);
-
-            pointer-events: none;
-
-            z-index: 99998;
-
-            transform: translate(-50%, -50%);
-
-            transition:
-                width 0.2s ease,
-                height 0.2s ease,
-                border-color 0.2s ease;
-        }
-
-
-        /* =========================================================
-           GREEN MOUSE FOLLOWER
-        ========================================================= */
-
-        .mouse-green {
-            position: fixed;
-
-            width: 160px;
-            height: 160px;
-
-            border-radius: 50%;
-
-            pointer-events: none;
-
-            z-index: -1;
-
-            transform:
-                translate(-50%, -50%);
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(34, 197, 94, 0.20) 0%,
-                    rgba(34, 197, 94, 0.10) 25%,
-                    rgba(34, 197, 94, 0.035) 50%,
-                    transparent 72%
-                );
-
-            filter: blur(12px);
-
-            opacity: 0;
-
-            transition:
-                opacity 0.5s ease;
-
-            mix-blend-mode: screen;
-        }
-
-
-        .mouse-green.active {
-            opacity: 1;
-        }
-
-
-        /* =========================================================
-           GREEN CORE
-        ========================================================= */
-
-        .mouse-core {
-            position: fixed;
-
-            width: 18px;
-            height: 18px;
-
-            border-radius: 50%;
-
-            pointer-events: none;
-
-            z-index: -1;
-
-            transform:
-                translate(-50%, -50%);
-
-            background:
-                radial-gradient(
-                    circle,
-                    #86efac,
-                    #22c55e 35%,
-                    rgba(34,197,94,0.2) 70%,
-                    transparent
-                );
-
-            box-shadow:
-                0 0 15px #22c55e,
-                0 0 35px rgba(34,197,94,0.65),
-                0 0 70px rgba(34,197,94,0.25);
-
-            opacity: 0;
-        }
-
-
-        .mouse-core.active {
-            opacity: 1;
-        }
-
-
-        /* =========================================================
-           GRID
+           BACKGROUND GRID
         ========================================================= */
 
         body::before {
@@ -266,7 +127,7 @@
 
 
         /* =========================================================
-           FLOATING GLOWS
+           STATIC BLUE GLOWS
         ========================================================= */
 
         .glow {
@@ -278,7 +139,7 @@
 
             z-index: -6;
 
-            filter: blur(130px);
+            filter: blur(120px);
         }
 
 
@@ -290,48 +151,44 @@
             left: -150px;
 
             background:
-                rgba(37,99,235,0.20);
-
-            animation:
-                floatGlow 12s ease-in-out infinite;
+                rgba(37,99,235,0.18);
         }
 
 
         .glow-two {
-            width: 420px;
-            height: 420px;
+            width: 400px;
+            height: 400px;
 
             right: -180px;
             bottom: 5%;
 
             background:
-                rgba(88,101,242,0.14);
-
-            animation:
-                floatGlow 15s ease-in-out infinite reverse;
+                rgba(88,101,242,0.12);
         }
 
 
         .glow-three {
-            width: 320px;
-            height: 320px;
+            width: 300px;
+            height: 300px;
 
             top: 45%;
             left: 45%;
 
             background:
-                rgba(59,130,246,0.07);
+                rgba(59,130,246,0.055);
 
-            filter: blur(110px);
+            filter: blur(100px);
         }
 
 
         /* =========================================================
            LIGHT RAYS
+           Langsam + unabhängig von Maus
         ========================================================= */
 
         .light-rays {
             position: fixed;
+
             inset: 0;
 
             pointer-events: none;
@@ -354,17 +211,17 @@
                 linear-gradient(
                     to bottom,
                     transparent,
-                    rgba(96,165,250,0.10),
+                    rgba(96,165,250,0.07),
                     transparent
                 );
 
             transform:
                 rotate(25deg);
 
-            filter: blur(1px);
+            opacity: 0.35;
 
             animation:
-                rayMove 10s linear infinite;
+                rayMove 14s linear infinite;
         }
 
 
@@ -372,31 +229,42 @@
             left: 15%;
         }
 
+
         .ray:nth-child(2) {
             left: 38%;
-            animation-delay: -4s;
-            opacity: 0.5;
+
+            animation-delay: -5s;
+
+            opacity: 0.25;
         }
+
 
         .ray:nth-child(3) {
             left: 68%;
-            animation-delay: -7s;
-            opacity: 0.35;
+
+            animation-delay: -9s;
+
+            opacity: 0.18;
         }
+
 
         .ray:nth-child(4) {
             left: 85%;
-            animation-delay: -2s;
-            opacity: 0.25;
+
+            animation-delay: -3s;
+
+            opacity: 0.15;
         }
 
 
         /* =========================================================
            PARTICLES
+           Nur CSS – kein JavaScript
         ========================================================= */
 
         .particles {
             position: fixed;
+
             inset: 0;
 
             pointer-events: none;
@@ -410,76 +278,86 @@
         .particle {
             position: absolute;
 
+            bottom: -10px;
+
             width: 3px;
             height: 3px;
 
             border-radius: 50%;
 
-            background: var(--blue-light);
+            background:
+                var(--blue-light);
 
             box-shadow:
-                0 0 8px var(--blue),
-                0 0 16px rgba(59,130,246,0.5);
+                0 0 7px
+                rgba(59,130,246,0.7);
 
             opacity: 0;
 
             animation:
-                particleFloat linear infinite;
+                particleFloat 18s linear infinite;
         }
 
 
         .particle:nth-child(1) {
             left: 5%;
-            animation-duration: 13s;
             animation-delay: -4s;
         }
 
+
         .particle:nth-child(2) {
             left: 14%;
-            animation-duration: 17s;
             animation-delay: -8s;
+            animation-duration: 22s;
         }
+
 
         .particle:nth-child(3) {
             left: 24%;
-            animation-duration: 12s;
             animation-delay: -2s;
+            animation-duration: 17s;
         }
+
 
         .particle:nth-child(4) {
             left: 36%;
-            animation-duration: 20s;
             animation-delay: -11s;
+            animation-duration: 24s;
         }
+
 
         .particle:nth-child(5) {
             left: 48%;
-            animation-duration: 15s;
             animation-delay: -5s;
+            animation-duration: 19s;
         }
+
 
         .particle:nth-child(6) {
             left: 59%;
-            animation-duration: 18s;
             animation-delay: -13s;
+            animation-duration: 23s;
         }
+
 
         .particle:nth-child(7) {
             left: 70%;
-            animation-duration: 14s;
             animation-delay: -7s;
+            animation-duration: 18s;
         }
+
 
         .particle:nth-child(8) {
             left: 82%;
-            animation-duration: 19s;
             animation-delay: -15s;
+            animation-duration: 21s;
         }
+
 
         .particle:nth-child(9) {
             left: 94%;
-            animation-duration: 16s;
             animation-delay: -3s;
+            animation-duration: 20s;
         }
 
 
@@ -491,6 +369,7 @@
             min-height: 78vh;
 
             display: flex;
+
             align-items: center;
             justify-content: center;
 
@@ -507,7 +386,7 @@
             max-width: 900px;
 
             animation:
-                heroEnter 1s
+                heroEnter 0.8s
                 cubic-bezier(.16,1,.3,1);
         }
 
@@ -516,32 +395,36 @@
             display: inline-flex;
 
             align-items: center;
+
             gap: 9px;
 
             padding:
                 9px 17px;
 
-            margin-bottom: 28px;
+            margin-bottom:
+                28px;
 
             border:
-                1px solid rgba(96,165,250,0.28);
+                1px solid
+                rgba(96,165,250,0.28);
 
-            border-radius: 999px;
+            border-radius:
+                999px;
 
             background:
                 rgba(59,130,246,0.07);
 
-            color: #bfdbfe;
+            color:
+                #bfdbfe;
 
-            font-size: 0.78rem;
+            font-size:
+                0.78rem;
 
-            font-weight: 700;
+            font-weight:
+                700;
 
-            letter-spacing: 1.5px;
-
-            box-shadow:
-                0 0 30px
-                rgba(59,130,246,0.06);
+            letter-spacing:
+                1.5px;
         }
 
 
@@ -555,12 +438,7 @@
                 var(--blue-light);
 
             box-shadow:
-                0 0 10px var(--blue),
-                0 0 20px
-                rgba(59,130,246,0.55);
-
-            animation:
-                pulse 2s ease-in-out infinite;
+                0 0 10px var(--blue);
         }
 
 
@@ -568,13 +446,17 @@
             font-size:
                 clamp(3.4rem, 9vw, 7.5rem);
 
-            line-height: 0.87;
+            line-height:
+                0.87;
 
-            font-weight: 800;
+            font-weight:
+                800;
 
-            letter-spacing: -7px;
+            letter-spacing:
+                -7px;
 
-            margin-bottom: 32px;
+            margin-bottom:
+                32px;
 
             background:
                 linear-gradient(
@@ -585,42 +467,51 @@
                     #2563eb 100%
                 );
 
-            -webkit-background-clip: text;
-            background-clip: text;
+            -webkit-background-clip:
+                text;
 
-            color: transparent;
+            background-clip:
+                text;
+
+            color:
+                transparent;
 
             text-shadow:
                 0 0 80px
-                rgba(59,130,246,0.16);
-
-            animation:
-                titleGlow 5s ease-in-out infinite;
+                rgba(59,130,246,0.13);
         }
 
 
         .hero p {
-            max-width: 660px;
+            max-width:
+                660px;
 
-            margin: auto;
+            margin:
+                auto;
 
-            color: var(--muted);
+            color:
+                var(--muted);
 
-            font-size: 1.12rem;
+            font-size:
+                1.12rem;
 
-            line-height: 1.85;
+            line-height:
+                1.85;
         }
 
 
         .hero-highlight {
-            color: white;
+            color:
+                white;
 
-            font-weight: 700;
+            font-weight:
+                700;
         }
 
 
         /* =========================================================
            SCROLL INDICATOR
+           Nur dezentes CSS-Bouncing
         ========================================================= */
 
         .scroll-indicator {
@@ -633,13 +524,19 @@
                 translateX(-50%);
 
             color:
-                rgba(148,163,184,0.6);
+                rgba(148,163,184,0.55);
 
-            font-size: 0.72rem;
+            font-size:
+                0.72rem;
 
-            letter-spacing: 2px;
+            letter-spacing:
+                2px;
 
-            text-transform: uppercase;
+            text-transform:
+                uppercase;
+
+            animation:
+                scrollFade 3s ease-in-out infinite;
         }
 
 
@@ -647,19 +544,22 @@
             width: 10px;
             height: 10px;
 
-            margin: 10px auto 0;
+            margin:
+                10px auto 0;
 
             border-right:
-                1px solid #60a5fa;
+                1px solid
+                var(--blue-light);
 
             border-bottom:
-                1px solid #60a5fa;
+                1px solid
+                var(--blue-light);
 
             transform:
                 rotate(45deg);
 
             animation:
-                arrowBounce 1.5s infinite;
+                arrowBounce 2s ease-in-out infinite;
         }
 
 
@@ -668,9 +568,11 @@
         ========================================================= */
 
         main {
-            max-width: 1050px;
+            max-width:
+                1050px;
 
-            margin: auto;
+            margin:
+                auto;
 
             padding:
                 0 20px 100px;
@@ -678,9 +580,11 @@
 
 
         .section-header {
-            text-align: center;
+            text-align:
+                center;
 
-            margin-bottom: 38px;
+            margin-bottom:
+                38px;
         }
 
 
@@ -688,48 +592,62 @@
             color:
                 var(--blue-light);
 
-            font-size: 0.76rem;
+            font-size:
+                0.76rem;
 
-            font-weight: 800;
+            font-weight:
+                800;
 
-            letter-spacing: 2.5px;
+            letter-spacing:
+                2.5px;
 
-            text-transform: uppercase;
+            text-transform:
+                uppercase;
         }
 
 
         .section-header h2 {
-            margin-top: 11px;
+            margin-top:
+                11px;
 
-            font-size: 2rem;
+            font-size:
+                2rem;
 
-            letter-spacing: -1px;
+            letter-spacing:
+                -1px;
         }
 
 
         /* =========================================================
            CARDS
+           Kein Maus-Tracking
         ========================================================= */
 
         .hub-grid {
-            display: grid;
+            display:
+                grid;
 
             grid-template-columns:
                 repeat(2, 1fr);
 
-            gap: 22px;
+            gap:
+                22px;
         }
 
 
         .hub-card {
-            position: relative;
+            position:
+                relative;
 
-            padding: 31px;
+            padding:
+                31px;
 
             border:
-                1px solid var(--border);
+                1px solid
+                var(--border);
 
-            border-radius: 23px;
+            border-radius:
+                23px;
 
             background:
                 linear-gradient(
@@ -740,68 +658,77 @@
                 var(--card);
 
             backdrop-filter:
-                blur(24px);
+                blur(18px);
 
             -webkit-backdrop-filter:
-                blur(24px);
+                blur(18px);
 
-            overflow: hidden;
+            overflow:
+                hidden;
 
             box-shadow:
                 0 15px 50px
                 rgba(0,0,0,0.18);
 
-            transform-style:
-                preserve-3d;
-
             transition:
-                transform 0.15s ease,
-                border-color 0.35s ease,
-                box-shadow 0.35s ease;
+                transform 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
         }
 
 
         .hub-card::before {
-            content: "";
+            content:
+                "";
 
-            position: absolute;
+            position:
+                absolute;
 
-            width: 230px;
-            height: 230px;
+            width:
+                220px;
 
-            top: -140px;
-            right: -140px;
+            height:
+                220px;
 
-            border-radius: 50%;
+            top:
+                -130px;
+
+            right:
+                -130px;
+
+            border-radius:
+                50%;
 
             background:
                 var(--blue);
 
             filter:
-                blur(90px);
+                blur(80px);
 
-            opacity: 0.12;
+            opacity:
+                0.10;
 
             transition:
-                opacity 0.4s ease;
+                opacity 0.25s ease;
         }
 
 
         .hub-card:hover {
+            transform:
+                translateY(-7px);
+
             border-color:
-                rgba(59,130,246,0.45);
+                rgba(59,130,246,0.40);
 
             box-shadow:
-                0 30px 80px
-                rgba(0,0,0,0.4),
-
-                0 0 50px
-                rgba(59,130,246,0.07);
+                0 25px 65px
+                rgba(0,0,0,0.35);
         }
 
 
         .hub-card:hover::before {
-            opacity: 0.25;
+            opacity:
+                0.20;
         }
 
 
@@ -810,43 +737,48 @@
         ========================================================= */
 
         .icon {
-            width: 58px;
-            height: 58px;
+            width:
+                58px;
 
-            display: flex;
+            height:
+                58px;
 
-            align-items: center;
-            justify-content: center;
+            display:
+                flex;
 
-            margin-bottom: 22px;
+            align-items:
+                center;
 
-            border-radius: 17px;
+            justify-content:
+                center;
 
-            font-size: 1.7rem;
+            margin-bottom:
+                22px;
+
+            border-radius:
+                17px;
+
+            font-size:
+                1.7rem;
 
             background:
-                linear-gradient(
-                    145deg,
-                    rgba(59,130,246,0.14),
-                    rgba(59,130,246,0.04)
-                );
+                rgba(59,130,246,0.10);
 
             border:
                 1px solid
-                rgba(96,165,250,0.22);
-
-            box-shadow:
-                inset 0 0 25px
-                rgba(59,130,246,0.04);
+                rgba(96,165,250,0.20);
         }
 
 
         .card-title {
-            font-size: 1.45rem;
+            font-size:
+                1.45rem;
 
-            font-weight: 700;
+            font-weight:
+                700;
 
-            margin-bottom: 10px;
+            margin-bottom:
+                10px;
         }
 
 
@@ -854,46 +786,46 @@
             color:
                 var(--muted);
 
-            line-height: 1.7;
+            line-height:
+                1.7;
 
-            font-size: 0.95rem;
+            font-size:
+                0.95rem;
 
-            margin-bottom: 24px;
+            margin-bottom:
+                24px;
         }
 
 
         /* =========================================================
-           IP
+           SERVER IP
         ========================================================= */
 
         .ip-box {
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
-            justify-content: space-between;
+            align-items:
+                center;
 
-            gap: 15px;
+            justify-content:
+                space-between;
+
+            gap:
+                15px;
 
             padding:
                 13px 15px;
 
             background:
-                rgba(0,0,0,0.3);
+                rgba(0,0,0,0.30);
 
             border:
                 1px solid
                 rgba(255,255,255,0.07);
 
-            border-radius: 12px;
-
-            transition:
-                border-color 0.25s ease;
-        }
-
-
-        .ip-box:hover {
-            border-color:
-                rgba(96,165,250,0.25);
+            border-radius:
+                12px;
         }
 
 
@@ -906,15 +838,12 @@
 
             font-size:
                 0.95rem;
-
-            text-shadow:
-                0 0 15px
-                rgba(96,165,250,0.15);
         }
 
 
         .copy-button {
-            border: none;
+            border:
+                none;
 
             background:
                 linear-gradient(
@@ -923,20 +852,20 @@
                     #2563eb
                 );
 
-            color: white;
+            color:
+                white;
 
             padding:
                 9px 14px;
 
-            border-radius: 8px;
+            border-radius:
+                8px;
 
-            font-weight: 700;
+            font-weight:
+                700;
 
-            cursor: pointer;
-
-            box-shadow:
-                0 5px 20px
-                rgba(37,99,235,0.18);
+            cursor:
+                pointer;
 
             transition:
                 transform 0.2s ease,
@@ -946,11 +875,11 @@
 
         .copy-button:hover {
             transform:
-                scale(1.05);
+                scale(1.04);
 
             box-shadow:
-                0 0 28px
-                rgba(59,130,246,0.4);
+                0 0 25px
+                rgba(59,130,246,0.35);
         }
 
 
@@ -959,14 +888,20 @@
         ========================================================= */
 
         .hub-btn {
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
-            justify-content: center;
+            align-items:
+                center;
 
-            gap: 9px;
+            justify-content:
+                center;
 
-            width: 100%;
+            gap:
+                9px;
+
+            width:
+                100%;
 
             padding:
                 14px 18px;
@@ -981,8 +916,8 @@
                 700;
 
             transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
         }
 
 
@@ -994,21 +929,22 @@
                     #5865f2
                 );
 
-            color: white;
+            color:
+                white;
 
             box-shadow:
                 0 10px 30px
-                rgba(88,101,242,0.18);
+                rgba(88,101,242,0.16);
         }
 
 
         .discord-btn:hover {
             transform:
-                translateY(-3px);
+                translateY(-2px);
 
             box-shadow:
-                0 15px 45px
-                rgba(88,101,242,0.38);
+                0 14px 38px
+                rgba(88,101,242,0.30);
         }
 
 
@@ -1052,7 +988,7 @@
                 rgba(255,255,255,0.025);
 
             backdrop-filter:
-                blur(15px);
+                blur(12px);
 
             font-size:
                 0.9rem;
@@ -1060,7 +996,8 @@
 
 
         .info-strip strong {
-            color: white;
+            color:
+                white;
         }
 
 
@@ -1100,69 +1037,19 @@
         @keyframes heroEnter {
 
             from {
-                opacity: 0;
+                opacity:
+                    0;
 
                 transform:
-                    translateY(35px)
-                    scale(0.97);
+                    translateY(25px);
             }
 
             to {
-                opacity: 1;
+                opacity:
+                    1;
 
                 transform:
-                    translateY(0)
-                    scale(1);
-            }
-        }
-
-
-        @keyframes pulse {
-
-            0%, 100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-
-            50% {
-                opacity: 0.45;
-                transform: scale(0.72);
-            }
-        }
-
-
-        @keyframes titleGlow {
-
-            0%, 100% {
-                filter:
-                    drop-shadow(
-                        0 0 20px
-                        rgba(59,130,246,0.03)
-                    );
-            }
-
-            50% {
-                filter:
-                    drop-shadow(
-                        0 0 40px
-                        rgba(59,130,246,0.14)
-                    );
-            }
-        }
-
-
-        @keyframes floatGlow {
-
-            0%, 100% {
-                transform:
-                    translate3d(0,0,0)
-                    scale(1);
-            }
-
-            50% {
-                transform:
-                    translate3d(40px,30px,0)
-                    scale(1.08);
+                    translateY(0);
             }
         }
 
@@ -1171,13 +1058,13 @@
 
             from {
                 transform:
-                    translateY(-20%)
+                    translateY(-15%)
                     rotate(25deg);
             }
 
             to {
                 transform:
-                    translateY(20%)
+                    translateY(15%)
                     rotate(25deg);
             }
         }
@@ -1186,35 +1073,54 @@
         @keyframes particleFloat {
 
             0% {
-                bottom: -10px;
+                bottom:
+                    -10px;
 
-                opacity: 0;
+                opacity:
+                    0;
 
                 transform:
-                    translateX(0)
-                    scale(0.6);
+                    translateX(0);
             }
 
             10% {
-                opacity: 0.7;
+                opacity:
+                    0.55;
             }
 
             50% {
-                opacity: 0.4;
+                opacity:
+                    0.25;
             }
 
             90% {
-                opacity: 0.7;
+                opacity:
+                    0.55;
             }
 
             100% {
-                bottom: 110%;
+                bottom:
+                    110%;
 
-                opacity: 0;
+                opacity:
+                    0;
 
                 transform:
-                    translateX(70px)
-                    scale(1);
+                    translateX(60px);
+            }
+        }
+
+
+        @keyframes scrollFade {
+
+            0%, 100% {
+                opacity:
+                    0.45;
+            }
+
+            50% {
+                opacity:
+                    0.8;
             }
         }
 
@@ -1230,7 +1136,7 @@
             50% {
                 transform:
                     rotate(45deg)
-                    translate(4px,4px);
+                    translate(3px,3px);
             }
         }
 
@@ -1282,14 +1188,11 @@
 
             .ray {
                 opacity:
-                    0.35;
+                    0.2;
             }
 
 
-            .cursor-dot,
-            .cursor-ring,
-            .mouse-green,
-            .mouse-core {
+            .particle {
                 display:
                     none;
             }
@@ -1320,16 +1223,20 @@
         }
 
 
+        /* =========================================================
+           REDUCED MOTION
+        ========================================================= */
+
         @media (prefers-reduced-motion: reduce) {
 
             *,
             *::before,
             *::after {
-                animation-duration:
-                    0.01ms !important;
+                animation:
+                    none !important;
 
-                animation-iteration-count:
-                    1 !important;
+                transition:
+                    none !important;
 
                 scroll-behavior:
                     auto !important;
@@ -1341,19 +1248,6 @@
 
 
 <body>
-
-
-    <!-- =========================================================
-         INTERACTIVE CURSOR
-    ========================================================= -->
-
-    <div class="cursor-dot"></div>
-
-    <div class="cursor-ring"></div>
-
-    <div class="mouse-green"></div>
-
-    <div class="mouse-core"></div>
 
 
     <!-- =========================================================
@@ -1482,9 +1376,7 @@
 
 
                 <div class="card-title">
-
                     Minecraft Server
-
                 </div>
 
 
@@ -1509,9 +1401,7 @@
                         class="copy-button"
                         onclick="copyIP()"
                     >
-
                         Kopieren
-
                     </button>
 
                 </div>
@@ -1529,9 +1419,7 @@
 
 
                 <div class="card-title">
-
                     Discord Community
-
                 </div>
 
 
@@ -1606,18 +1494,16 @@
 
     <!-- =========================================================
          JAVASCRIPT
+         NUR FÜR IP-KOPIEREN
     ========================================================= -->
 
     <script>
-
-        /* =====================================================
-           COPY IP
-        ===================================================== */
 
         function copyIP() {
 
             const ip =
                 "play.aaroniamc.de";
+
 
             navigator.clipboard
                 .writeText(ip)
@@ -1629,11 +1515,14 @@
                             ".copy-button"
                         );
 
+
                     const oldText =
                         button.textContent;
 
+
                     button.textContent =
                         "✓ Kopiert!";
+
 
                     setTimeout(() => {
 
@@ -1651,378 +1540,6 @@
                     );
 
                 });
-
-        }
-
-
-        /* =====================================================
-           CURSOR
-        ===================================================== */
-
-        const cursorDot =
-            document.querySelector(
-                ".cursor-dot"
-            );
-
-        const cursorRing =
-            document.querySelector(
-                ".cursor-ring"
-            );
-
-        const greenGlow =
-            document.querySelector(
-                ".mouse-green"
-            );
-
-        const greenCore =
-            document.querySelector(
-                ".mouse-core"
-            );
-
-
-        let mouseX = window.innerWidth / 2;
-        let mouseY = window.innerHeight / 2;
-
-        let ringX = mouseX;
-        let ringY = mouseY;
-
-        let greenX = mouseX;
-        let greenY = mouseY;
-
-
-        document.addEventListener(
-            "mousemove",
-            (event) => {
-
-                mouseX =
-                    event.clientX;
-
-                mouseY =
-                    event.clientY;
-
-                cursorDot.style.left =
-                    mouseX + "px";
-
-                cursorDot.style.top =
-                    mouseY + "px";
-
-                greenGlow.classList.add(
-                    "active"
-                );
-
-                greenCore.classList.add(
-                    "active"
-                );
-
-            }
-        );
-
-
-        function animateCursor() {
-
-            /*
-             * Cursor Ring
-             */
-
-            ringX +=
-                (mouseX - ringX) * 0.18;
-
-            ringY +=
-                (mouseY - ringY) * 0.18;
-
-
-            cursorRing.style.left =
-                ringX + "px";
-
-            cursorRing.style.top =
-                ringY + "px";
-
-
-            /*
-             * Green Glow
-             *
-             * Absichtlich langsamer,
-             * damit er hinter der Maus
-             * "schwebt".
-             */
-
-            greenX +=
-                (mouseX - greenX) * 0.055;
-
-            greenY +=
-                (mouseY - greenY) * 0.055;
-
-
-            greenGlow.style.left =
-                greenX + "px";
-
-            greenGlow.style.top =
-                greenY + "px";
-
-
-            greenCore.style.left =
-                greenX + "px";
-
-            greenCore.style.top =
-                greenY + "px";
-
-
-            requestAnimationFrame(
-                animateCursor
-            );
-        }
-
-
-        animateCursor();
-
-
-        /* =====================================================
-           CURSOR HOVER EFFECT
-        ===================================================== */
-
-        const interactiveElements =
-            document.querySelectorAll(
-                "a, button, .hub-card"
-            );
-
-
-        interactiveElements.forEach(
-            element => {
-
-                element.addEventListener(
-                    "mouseenter",
-                    () => {
-
-                        cursorRing.style.width =
-                            "58px";
-
-                        cursorRing.style.height =
-                            "58px";
-
-                        cursorRing.style.borderColor =
-                            "rgba(74,222,128,0.7)";
-
-                    }
-                );
-
-
-                element.addEventListener(
-                    "mouseleave",
-                    () => {
-
-                        cursorRing.style.width =
-                            "38px";
-
-                        cursorRing.style.height =
-                            "38px";
-
-                        cursorRing.style.borderColor =
-                            "rgba(96,165,250,0.45)";
-
-                    }
-                );
-
-            }
-        );
-
-
-        /* =====================================================
-           3D CARD TILT
-        ===================================================== */
-
-        const cards =
-            document.querySelectorAll(
-                ".hub-card"
-            );
-
-
-        cards.forEach(card => {
-
-            card.addEventListener(
-                "mousemove",
-                event => {
-
-                    const rect =
-                        card.getBoundingClientRect();
-
-                    const x =
-                        event.clientX -
-                        rect.left;
-
-                    const y =
-                        event.clientY -
-                        rect.top;
-
-
-                    const centerX =
-                        rect.width / 2;
-
-                    const centerY =
-                        rect.height / 2;
-
-
-                    const rotateX =
-                        ((y - centerY) /
-                        centerY) * -3;
-
-
-                    const rotateY =
-                        ((x - centerX) /
-                        centerX) * 3;
-
-
-                    card.style.transform =
-                        `
-                        perspective(900px)
-                        rotateX(${rotateX}deg)
-                        rotateY(${rotateY}deg)
-                        translateY(-8px)
-                        `;
-                }
-            );
-
-
-            card.addEventListener(
-                "mouseleave",
-                () => {
-
-                    card.style.transform =
-                        "";
-
-                }
-            );
-
-        });
-
-
-        /* =====================================================
-           SMALL PARTICLE SPAWN ON CLICK
-        ===================================================== */
-
-        document.addEventListener(
-            "click",
-            event => {
-
-                for (
-                    let i = 0;
-                    i < 8;
-                    i++
-                ) {
-
-                    createClickParticle(
-                        event.clientX,
-                        event.clientY
-                    );
-
-                }
-
-            }
-        );
-
-
-        function createClickParticle(
-            x,
-            y
-        ) {
-
-            const particle =
-                document.createElement(
-                    "div"
-                );
-
-            particle.style.position =
-                "fixed";
-
-            particle.style.left =
-                x + "px";
-
-            particle.style.top =
-                y + "px";
-
-            particle.style.width =
-                "4px";
-
-            particle.style.height =
-                "4px";
-
-            particle.style.borderRadius =
-                "50%";
-
-            particle.style.background =
-                "#4ade80";
-
-            particle.style.boxShadow =
-                "0 0 12px #22c55e";
-
-            particle.style.pointerEvents =
-                "none";
-
-            particle.style.zIndex =
-                "9999";
-
-
-            document.body.appendChild(
-                particle
-            );
-
-
-            const angle =
-                Math.random() *
-                Math.PI * 2;
-
-
-            const distance =
-                30 +
-                Math.random() * 70;
-
-
-            const targetX =
-                Math.cos(angle) *
-                distance;
-
-
-            const targetY =
-                Math.sin(angle) *
-                distance;
-
-
-            particle.animate(
-                [
-                    {
-                        transform:
-                            "translate(-50%, -50%) scale(1)",
-                        opacity: 1
-                    },
-
-                    {
-                        transform:
-                            `
-                            translate(
-                                calc(-50% + ${targetX}px),
-                                calc(-50% + ${targetY}px)
-                            )
-                            scale(0)
-                            `,
-                        opacity: 0
-                    }
-                ],
-                {
-                    duration:
-                        500 +
-                        Math.random() * 400,
-
-                    easing:
-                        "cubic-bezier(.16,1,.3,1)"
-                }
-            );
-
-
-            setTimeout(
-                () => {
-                    particle.remove();
-                },
-                1000
-            );
 
         }
 
