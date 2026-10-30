@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AaroniaMC | Minecraft Network</title>
+    <title>Aaronia System Bot | Das System für Discord</title>
 
     <meta
         name="description"
-        content="Willkommen beim offiziellen AaroniaMC Minecraft Network."
+        content="Aaronia System Bot – das moderne System mit hilfreichen Funktionen für deinen Discord-Server."
     >
 
     <link
@@ -1243,11 +1243,186 @@
             }
         }
 
+    
+        
+        .top-nav {
+            position: absolute; top: 0; left: 0; right: 0; z-index: 20;
+            display: flex; align-items: center; justify-content: space-between;
+            max-width: 1180px; margin: 0 auto; padding: 24px 26px;
+        }
+        .brand-mark {
+            display: inline-flex; align-items: center; gap: 11px;
+            color: #eef2ff; text-decoration: none; font-size: .78rem;
+            font-weight: 800; letter-spacing: 2px;
+        }
+        .brand-symbol {
+            display: grid; place-items: center; width: 34px; height: 34px;
+            border-radius: 11px; color: white; font-size: 1rem;
+            background: linear-gradient(135deg,#8b5cf6,#0891b2);
+            box-shadow: 0 6px 22px rgba(124,58,237,.32);
+        }
+        .nav-cta {
+            padding: 10px 16px; border: 1px solid rgba(167,139,250,.24);
+            border-radius: 999px; color: #e0e7ff; text-decoration: none;
+            font-size: .82rem; font-weight: 700; background: rgba(255,255,255,.045);
+            backdrop-filter: blur(12px); transition: .2s ease;
+        }
+        .nav-cta:hover { border-color: rgba(103,232,249,.55); transform: translateY(-2px); }
+        .nav-cta span { color: #67e8f9; margin-left: 5px; }
+        @media (max-width: 700px) { .top-nav { padding: 17px 18px; } }
+
+        /* =========================================================
+           AARONIA SYSTEM BOT — MODERN VISUAL UPGRADE
+        ========================================================= */
+        :root {
+            --blue: #7c3aed;
+            --blue-light: #60a5fa;
+            --blue-bright: #c084fc;
+            --blue-dark: #4f46e5;
+            --card: rgba(13, 16, 35, 0.78);
+            --border: rgba(167, 139, 250, 0.17);
+            --muted: #a7b0c8;
+        }
+
+        body {
+            background:
+                radial-gradient(ellipse at 50% -15%, rgba(124,58,237,.27), transparent 42%),
+                radial-gradient(ellipse at 5% 45%, rgba(6,182,212,.12), transparent 34%),
+                radial-gradient(ellipse at 100% 75%, rgba(236,72,153,.11), transparent 32%),
+                #050611;
+        }
+
+        body::before {
+            opacity: .55;
+            background-size: 42px 42px;
+            mask-image: linear-gradient(to bottom, black, transparent 85%);
+        }
+
+        .hero { max-width: 1040px; }
+        .badge {
+            border-color: rgba(192,132,252,.35);
+            background: rgba(124,58,237,.12);
+            box-shadow: 0 0 35px rgba(124,58,237,.10), inset 0 0 18px rgba(96,165,250,.05);
+            backdrop-filter: blur(14px);
+        }
+        .status-dot {
+            background: #a78bfa;
+            box-shadow: 0 0 12px #a78bfa, 0 0 24px rgba(34,211,238,.55);
+        }
+        h1 {
+            font-size: clamp(3.2rem, 9vw, 7.2rem);
+            line-height: .94;
+            letter-spacing: -5px;
+            text-shadow: 0 0 70px rgba(124,58,237,.18);
+        }
+        .rgb-text {
+            display: inline-block;
+            background: linear-gradient(90deg, #ff4fd8, #8b5cf6, #38bdf8, #34d399, #facc15, #ff4fd8);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: rgbFlow 8s linear infinite;
+            filter: drop-shadow(0 0 25px rgba(139,92,246,.22));
+        }
+        .hero p { max-width: 760px; font-size: 1.12rem; }
+        .hero-highlight {
+            background: linear-gradient(90deg, #fff, #c4b5fd, #67e8f9, #fff);
+            background-size: 220% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: rgbFlow 10s linear infinite;
+        }
+        .section-header span {
+            background: linear-gradient(90deg, #c084fc, #67e8f9, #f0abfc);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .section-header h2 {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            letter-spacing: -1.5px;
+        }
+        .hub-grid { gap: 24px; }
+        .hub-card {
+            border-radius: 26px;
+            border-color: rgba(167,139,250,.16);
+            background:
+                linear-gradient(145deg, rgba(255,255,255,.065), rgba(255,255,255,.012)),
+                rgba(10,12,29,.82);
+            box-shadow: 0 22px 70px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.045);
+        }
+        .hub-card:hover {
+            border-color: rgba(103,232,249,.42);
+            box-shadow: 0 28px 80px rgba(0,0,0,.4), 0 0 38px rgba(124,58,237,.12);
+        }
+        .hub-card::before {
+            background: linear-gradient(135deg, #8b5cf6, #06b6d4, #ec4899);
+            opacity: .14;
+        }
+        .icon {
+            border-radius: 19px;
+            background: linear-gradient(145deg, rgba(139,92,246,.2), rgba(6,182,212,.09));
+            border-color: rgba(167,139,250,.25);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 10px 30px rgba(124,58,237,.08);
+        }
+        .card-title { letter-spacing: -.4px; }
+        .hub-btn {
+            border: 1px solid rgba(255,255,255,.12);
+            border-radius: 13px;
+            box-shadow: 0 12px 32px rgba(88,65,190,.2);
+        }
+        .discord-btn {
+            background: linear-gradient(105deg, #7c3aed, #4f46e5 45%, #0891b2);
+            background-size: 180% 100%;
+            transition: background-position .35s ease, transform .2s ease, box-shadow .2s ease;
+        }
+        .discord-btn:hover {
+            background-position: 100% 0;
+            box-shadow: 0 16px 42px rgba(99,102,241,.32);
+        }
+        .info-strip {
+            border-radius: 18px;
+            border-color: rgba(167,139,250,.17);
+            background: linear-gradient(110deg, rgba(124,58,237,.09), rgba(6,182,212,.05), rgba(236,72,153,.06));
+        }
+        .info-strip strong {
+            background: linear-gradient(90deg, #fff, #c4b5fd, #67e8f9);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        footer { border-color: rgba(167,139,250,.12); }
+        footer a {
+            color: #a5b4fc;
+            text-decoration: none;
+            transition: color .2s ease;
+        }
+        footer a:hover { color: #67e8f9; }
+
+        @keyframes rgbFlow {
+            from { background-position: 0% 50%; }
+            to { background-position: 300% 50%; }
+        }
+        @media (max-width: 700px) {
+            h1 { letter-spacing: -3px; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .rgb-text, .hero-highlight { animation: none; }
+        }
+
     </style>
 </head>
 
 
 <body>
+
+    <nav class="top-nav" aria-label="Hauptnavigation">
+        <a class="brand-mark" href="#top"><span class="brand-symbol">A</span><span>AARONIA</span></a>
+        <a class="nav-cta" href="https://sybot.aaroniamc.de/" target="_blank" rel="noopener noreferrer">System öffnen <span>↗</span></a>
+    </nav>
+
 
 
     <!-- =========================================================
@@ -1290,44 +1465,15 @@
          HERO
     ========================================================= -->
 
+    <div id="top"></div>
     <header>
 
         <div class="hero">
 
-            <div class="badge">
-
-                <span class="status-dot"></span>
-
-                OFFIZIELLES NETWORK
-
-            </div>
-
-
-            <h1>
-
-                AARONIA
-                <br>
-                MC
-
-            </h1>
-
-
-            <p>
-
-                Willkommen bei
-
-                <span class="hero-highlight">
-                    AaroniaMC
-                </span>
-
-                —
-
-                deinem Minecraft Network
-                für eine aktive Community,
-                gemeinsame Abenteuer
-                und jede Menge Spielspaß.
-
-            </p>
+            <div class="badge"><span class="status-dot"></span> DAS SYSTEM FÜR DEINEN DISCORD</div>
+            <h1>AARONIA<br><span class="rgb-text">SYSTEM BOT</span></h1>
+            <p>Mehr Überblick. Mehr Möglichkeiten. Weniger Aufwand.<br>
+            <span class="hero-highlight">Aaronia System Bot</span> unterstützt deinen Discord-Server mit durchdachten Funktionen und einem modernen System – entwickelt für Communities, die mehr erwarten.</p>
 
         </div>
 
@@ -1353,11 +1499,11 @@
         <div class="section-header">
 
             <span>
-                Alles Wichtige auf einen Blick
+                SMART. MODERN. AARONIA.
             </span>
 
             <h2>
-                Dein Aaronia Hub
+                Alles für deinen Discord
             </h2>
 
         </div>
@@ -1371,40 +1517,26 @@
             <div class="hub-card">
 
                 <div class="icon">
-                    🎮
+                    🤖
                 </div>
 
 
                 <div class="card-title">
-                    Minecraft Server
+                    Dein Server. Ein starkes System.
                 </div>
 
 
                 <div class="card-desc">
 
-                    Betritt unseren Server,
-                    entdecke die Welt von Aaronia
-                    und spiele gemeinsam mit
-                    unserer Community.
+                    Bring Struktur und praktische Funktionen auf deinen Discord-Server.
+                    Aaronia System Bot verbindet ein modernes Auftreten
+                    mit hilfreichen Möglichkeiten für deinen Alltag
+                    als Community- oder Server-Team.
 
                 </div>
 
 
-                <div class="ip-box">
-
-                    <span class="ip">
-                        play.aaroniamc.de
-                    </span>
-
-
-                    <button
-                        class="copy-button"
-                        onclick="copyIP()"
-                    >
-                        Kopieren
-                    </button>
-
-                </div>
+                <a class="hub-btn discord-btn" href="https://sybot.aaroniamc.de/" target="_blank" rel="noopener noreferrer">Aaronia System Bot jetzt entdecken <span>→</span></a>
 
             </div>
 
@@ -1419,28 +1551,27 @@
 
 
                 <div class="card-title">
-                    Discord Community
+                    Die System-Website öffnen
                 </div>
 
 
                 <div class="card-desc">
 
-                    Vernetze dich mit anderen
-                    Spielern, erhalte Support,
-                    erfahre Neuigkeiten und
-                    verpasse keine Events.
+                    Entdecke das System, informiere dich über die
+                    verfügbaren Funktionen und finde heraus,
+                    wie Aaronia System Bot zu deiner Community passt.
 
                 </div>
 
 
                 <a
-                    href="https://dsc.gg/aaroniasmp"
+                    href="https://sybot.aaroniamc.de/"
                     target="_blank"
                     rel="noopener noreferrer"
                     class="hub-btn discord-btn"
                 >
 
-                    Discord beitreten
+                    Zur Aaronia System Bot-Webseite
 
                     <span>
                         →
@@ -1461,11 +1592,10 @@
             <span>
 
                 <strong>
-                    AaroniaMC
+                    Aaronia System Bot
                 </strong>
 
-                — Gemeinsam spielen.
-                Gemeinsam erleben.
+                — Dein Discord. Dein System. Aaronia.
 
             </span>
 
@@ -1480,70 +1610,15 @@
     ========================================================= -->
 
     <footer>
-
-        &copy; 2026
-
-        <span>
-            AaroniaMC
-        </span>
-
-        · Alle Rechte vorbehalten.
-
+        &copy; 2026 <span>Aaronia System Bot</span> · Alle Rechte vorbehalten.
+        <span class="footer-separator">·</span>
+        <a href="https://impressum.aaroniamc.de/" target="_blank" rel="noopener noreferrer">Impressum</a>
     </footer>
 
 
     <!-- =========================================================
          JAVASCRIPT
-         NUR FÜR IP-KOPIEREN
+         WEITERLEITUNG ZUR SYBOT-WEBSEITE
     ========================================================= -->
-
-    <script>
-
-        function copyIP() {
-
-            const ip =
-                "play.aaroniamc.de";
-
-
-            navigator.clipboard
-                .writeText(ip)
-
-                .then(() => {
-
-                    const button =
-                        document.querySelector(
-                            ".copy-button"
-                        );
-
-
-                    const oldText =
-                        button.textContent;
-
-
-                    button.textContent =
-                        "✓ Kopiert!";
-
-
-                    setTimeout(() => {
-
-                        button.textContent =
-                            oldText;
-
-                    }, 1800);
-
-                })
-
-                .catch(() => {
-
-                    alert(
-                        "Server-IP: " + ip
-                    );
-
-                });
-
-        }
-
-    </script>
-
 </body>
 </html>
