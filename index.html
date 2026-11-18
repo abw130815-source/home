@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07152d">
+  <meta name="description" content="AaroniaMC – Dein Minecraft-Server. Jetzt joinen: play.aaroniamc.de">
+  <title>AaroniaMC — Dein nächstes Abenteuer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #050d1b;
+      --panel: rgba(13, 31, 58, .76);
+      --blue: #1677ff;
+      --cyan: #39b9ff;
+      --red: #ff354f;
+      --text: #f4f8ff;
+      --muted: #a8b8d2;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--text); background: var(--bg);
+      font-family: Inter, system-ui, sans-serif; overflow-x: hidden;
+    }
+    body::before {
+      content: ""; position: fixed; inset: 0; z-index: -2; pointer-events: none;
+      background:
+        radial-gradient(ellipse at 15% 15%, rgba(20, 103, 255, .24), transparent 38%),
+        radial-gradient(ellipse at 85% 28%, rgba(255, 40, 75, .13), transparent 34%),
+        linear-gradient(145deg, #07172f 0%, #050d1b 55%, #090f21 100%);
+    }
+    body::after {
+      content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: .17;
+      background-image: linear-gradient(rgba(100,160,255,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(100,160,255,.12) 1px, transparent 1px);
+      background-size: 54px 54px; mask-image: linear-gradient(to bottom, black, transparent 80%);
+    }
+    a { color: inherit; text-decoration: none; }
+    .nav-wrap { position: absolute; top: 0; left: 0; right: 0; z-index: 10; }
+    nav {
+      width: min(1160px, calc(100% - 44px)); margin: 22px auto; padding: 12px 17px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(5, 15, 32, .66); border: 1px solid rgba(125,174,255,.16);
+      border-radius: 16px; backdrop-filter: blur(18px);
+    }
+    .brand { display:flex; align-items:center; gap:11px; font-family: Rajdhani, sans-serif; font-size: 23px; font-weight: 700; letter-spacing: 1px; }
+    .brand-mark { width: 34px; height: 34px; border-radius: 10px; display:grid; place-items:center; background: linear-gradient(135deg,var(--blue),#0b2d70); box-shadow: 0 0 24px #1677ff55; }
+    .brand-mark span { font-size: 20px; }
+    .nav-links { display:flex; gap:28px; color:#c4d2e8; font-size:13px; font-weight:700; }
+    .nav-links a:hover { color:white; }
+    .nav-join { padding: 10px 17px; border-radius: 10px; background: linear-gradient(110deg,#176dff,#0c4fc4); font-size:13px; font-weight:800; box-shadow:0 7px 24px #1268ff44; }
+    .hero { min-height: 780px; display:flex; align-items:center; position:relative; padding: 130px 22px 90px; }
+    .hero-inner { width:min(1160px,100%); margin:auto; display:grid; grid-template-columns: 1.1fr .9fr; gap:50px; align-items:center; }
+    .eyebrow { display:inline-flex; align-items:center; gap:9px; padding:8px 13px; border:1px solid #287cff55; border-radius:999px; color:#b8d5ff; background:#0c2c5b66; font-size:11px; font-weight:800; letter-spacing:1.7px; text-transform:uppercase; }
+    .pulse { width:7px; height:7px; border-radius:50%; background:#44d49b; box-shadow:0 0 12px #44d49b; }
+    h1 { margin:22px 0 14px; font-family:Rajdhani,sans-serif; font-size:clamp(58px,8vw,100px); line-height:.88; letter-spacing:-2px; text-transform:uppercase; }
+    h1 .blue { color:#54a4ff; text-shadow:0 0 35px #1677ff55; }
+    h1 .red { color:var(--red); }
+    .lead { max-width:560px; color:var(--muted); font-size:17px; line-height:1.8; }
+    .actions { display:flex; flex-wrap:wrap; gap:13px; margin-top:32px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:15px 22px; border-radius:12px; font-size:14px; font-weight:800; transition:.2s transform,.2s box-shadow; }
+    .btn:hover { transform:translateY(-3px); }
+    .btn-primary { background:linear-gradient(110deg,#2386ff,#0751cf); box-shadow:0 10px 32px #1268ff44; }
+    .btn-secondary { border:1px solid #7897c744; background:#102342aa; color:#dceaff; }
+    .server-line { margin-top:27px; display:flex; align-items:center; gap:10px; color:#9eb1ce; font-size:12px; }
+    .server-line strong { color:#eaf3ff; font-family:Rajdhani,sans-serif; font-size:17px; letter-spacing:1px; }
+    .visual { position:relative; min-height:430px; display:grid; place-items:center; }
+    .orb { position:absolute; width:360px; height:360px; border-radius:50%; background:radial-gradient(circle,#1269ff35,transparent 68%); filter:blur(5px); }
+    .logo-card { width:min(440px,100%); padding:34px; position:relative; border:1px solid #6baaff36; border-radius:28px; background:linear-gradient(145deg,#102c55c9,#09172dcc); box-shadow:0 30px 90px #0008, inset 0 1px #ffffff15; transform:rotate(2deg); }
+    .logo-card::before { content:""; position:absolute; inset:-1px; border-radius:28px; padding:1px; background:linear-gradient(135deg,#2e8dff88,transparent 48%,#ff354f66); mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); mask-composite:exclude; pointer-events:none; }
+    .logo-card img { display:block; width:100%; max-height:210px; object-fit:contain; filter:drop-shadow(0 12px 25px #0008); }
+    .logo-caption { margin-top:25px; padding-top:18px; border-top:1px solid #ffffff18; display:flex; justify-content:space-between; align-items:center; color:#a9bddb; font-size:11px; letter-spacing:1.5px; font-weight:800; }
+    .logo-caption b { color:#fff; font-family:Rajdhani,sans-serif; font-size:18px; letter-spacing:2px; }
+    .float-tag { position:absolute; padding:12px 15px; border-radius:12px; background:#0c2140e8; border:1px solid #6daaff40; box-shadow:0 12px 35px #0007; font-size:12px; font-weight:800; }
+    .tag-one { top:48px; right:-8px; color:#8fc5ff; }
+    .tag-two { bottom:43px; left:-14px; color:#ff8494; }
+    .section { width:min(1100px,calc(100% - 44px)); margin:0 auto; padding:55px 0 95px; }
+    .section-head { text-align:center; margin-bottom:36px; }
+    .section-kicker { color:#56a4ff; font-size:11px; letter-spacing:2.5px; font-weight:800; text-transform:uppercase; }
+    h2 { margin:10px 0; font-family:Rajdhani,sans-serif; font-size:clamp(35px,5vw,52px); text-transform:uppercase; }
+    .section-head p { color:var(--muted); margin:0; }
+    .features { display:grid; grid-template-columns:repeat(3,1fr); gap:17px; }
+    .feature { padding:25px; border:1px solid #6b9bd52b; border-radius:18px; background:linear-gradient(145deg,#102746bb,#0a172bbb); transition:.2s; }
+    .feature:hover { transform:translateY(-5px); border-color:#398bff88; }
+    .feature-icon { width:43px; height:43px; display:grid; place-items:center; border-radius:13px; background:#176dff22; color:#70b4ff; font-size:21px; margin-bottom:17px; }
+    .feature:nth-child(2) .feature-icon { background:#ff354f1c; color:#ff7184; }
+    .feature h3 { margin:0 0 9px; font-family:Rajdhani,sans-serif; font-size:23px; text-transform:uppercase; }
+    .feature p { margin:0; color:#a8b8d2; font-size:13px; line-height:1.7; }
+    .join-panel { padding:42px; border:1px solid #3688ff55; border-radius:24px; text-align:center; background:radial-gradient(ellipse at 50% 0%,#176dff2b,transparent 65%),linear-gradient(135deg,#102849dd,#09172cdd); box-shadow:0 25px 70px #0005; }
+    .ip-box { display:inline-flex; align-items:center; gap:18px; margin:18px auto 8px; padding:13px 15px 13px 22px; border:1px solid #6aa8ff55; border-radius:13px; background:#06152be8; }
+    .ip-box code { color:#fff; font-family:Rajdhani,monospace; font-size:clamp(18px,3vw,25px); font-weight:700; letter-spacing:1px; }
+    .copy-btn { border:0; cursor:pointer; border-radius:9px; padding:10px 13px; color:white; background:#176dff; font-weight:800; }
+    #copy-status { min-height:18px; color:#8bbaff; font-size:12px; }
+    footer { border-top:1px solid #ffffff12; padding:27px 22px; text-align:center; color:#7f92af; font-size:12px; }
+    footer b { color:#c8d9f2; }
+    @media(max-width:800px) {
+      .hero { min-height:auto; padding-top:145px; }
+      .hero-inner { grid-template-columns:1fr; gap:18px; }
+      .visual { min-height:350px; }
+      .logo-card { max-width:390px; }
+      .features { grid-template-columns:1fr; }
+      .nav-links { display:none; }
+      .tag-one { right:0; }
+      .tag-two { left:0; }
+    }
+    @media(max-width:480px) {
+      nav { width:calc(100% - 24px); margin:12px auto; }
+      .hero { padding-left:18px; padding-right:18px; }
+      .lead { font-size:15px; }
+      .btn { width:100%; }
+      .logo-card { padding:24px; }
+      .join-panel { padding:30px 17px; }
+      .ip-box { gap:9px; padding-left:12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <nav>
+      <a class="brand" href="#"><span class="brand-mark"><span>✦</span></span> AARONIA<span style="color:#58a6ff">MC</span></a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#join">Server beitreten</a>
+        <a href="#sybotex">Sybotex</a>
+      </div>
+      <a class="nav-join" href="#join">JETZT SPIELEN ↗</a>
+    </nav>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="eyebrow"><span class="pulse"></span> Dein Minecraft-Abenteuer wartet</div>
+          <h1>WILLKOMMEN<br>BEI <span class="blue">AARONIA</span><span class="red">MC</span></h1>
+          <p class="lead">Ein Server. Viele Möglichkeiten. Entdecke AaroniaMC, triff neue Leute und werde Teil einer Community, in der dein nächstes Minecraft-Abenteuer beginnt.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#join">⚔ SERVER BEITRETEN</a>
+            <a class="btn btn-secondary" href="https://discord.gg/sDrFhpy3gQ" target="_blank" rel="noopener">◈ DISCORD</a>
+          </div>
+          <div class="server-line"><span class="pulse"></span> SERVER-IP: <strong>play.aaroniamc.de</strong></div>
+        </div>
+        <div class="visual">
+          <div class="orb"></div>
+          <div class="float-tag tag-one">✦ DEIN SERVER</div>
+          <div class="logo-card">
+            <img src="https://raw.githubusercontent.com/abw130815-source/bilder/main/aaronia.png" alt="Aaronia Logo">
+            <div class="logo-caption"><span>MINECRAFT NETWORK</span><b>PLAY. CREATE. REPEAT.</b></div>
+          </div>
+          <div class="float-tag tag-two">● READY TO PLAY</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="section-head">
+        <div class="section-kicker">WHY AARONIAMC?</div>
+        <h2>DEIN PLATZ. DEIN ABENTEUER.</h2>
+        <p>Worauf wartest du? Auf dem Server geht's erst richtig los.</p>
+      </div>
+      <div class="features">
+        <article class="feature">
+          <div class="feature-icon">⚔</div>
+          <h3>Action & Abenteuer</h3>
+          <p>Stürz dich ins Geschehen, entdecke die Welt und mach deine eigenen Minecraft-Momente unvergesslich.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon">♟</div>
+          <h3>Community</h3>
+          <p>Spiel gemeinsam, lerne andere Spieler kennen und werde Teil der AaroniaMC-Community.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon">◆</div>
+          <h3>Immer Neues</h3>
+          <p>Es gibt immer etwas zu entdecken. Schau vorbei und finde heraus, was AaroniaMC für dich bereithält.</p>
+        </article>
+        <article class="feature">
+          <div class="feature-icon">🤖</div>
+          <h3>Sybotex</h3>
+          <p>Entdecke auch unseren Discord-Bot Sybotex und besuche seine Website.</p>
+          <p style="margin-top:14px"><a href="https://sybot.aaroniamc.de" target="_blank" rel="noopener" style="color:#70b4ff;font-weight:800">sybot.aaroniamc.de ↗</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="sybotex">
+      <div class="join-panel" style="background:radial-gradient(ellipse at 50% 0%,#ff354f20,transparent 65%),linear-gradient(135deg,#102849dd,#09172cdd)">
+        <div class="section-kicker" style="color:#ff7184">MEET OUR DISCORD BOT</div>
+        <h2>SYBOTEX</h2>
+        <p style="color:var(--muted);margin:0 auto;max-width:560px">Neben AaroniaMC gibt es auch Sybotex – unseren Discord-Bot. Schau auf der Website vorbei und entdecke mehr.</p>
+        <div class="actions" style="justify-content:center">
+          <a class="btn btn-primary" href="https://sybot.aaroniamc.de" target="_blank" rel="noopener">🤖 SYBOTEX WEBSITE ↗</a>
+        </div>
+        <p style="color:#9eb1ce;font-size:13px;margin:16px 0 0">sybot.aaroniamc.de</p>
+      </div>
+    </section>
+
+    <section class="section" id="join">
+      <div class="join-panel">
+        <div class="section-kicker">READY WHEN YOU ARE</div>
+        <h2>JOIN AARONIAMC</h2>
+        <p style="color:var(--muted);margin:0">Kopiere die Server-IP und komm direkt auf den Server.</p>
+        <div class="ip-box">
+          <code id="server-ip">play.aaroniamc.de</code>
+          <button class="copy-btn" onclick="copyIP()">KOPIEREN</button>
+        </div>
+        <div id="copy-status" aria-live="polite"></div>
+        <div class="actions" style="justify-content:center;margin-top:15px">
+          <a class="btn btn-secondary" href="https://discord.gg/sDrFhpy3gQ" target="_blank" rel="noopener">DISCORD ÖFFNEN ↗</a>
+          <a class="btn btn-secondary" href="https://www.youtube.com/@aaronia.youtube" target="_blank" rel="noopener">YOUTUBE ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© <span id="year"></span> <b>AaroniaMC</b> · Mit Leidenschaft für Minecraft gemacht.</footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    async function copyIP() {
+      const ip = document.getElementById('server-ip').textContent;
+      const status = document.getElementById('copy-status');
+      try {
+        await navigator.clipboard.writeText(ip);
+        status.textContent = '✓ Server-IP wurde kopiert!';
+      } catch (e) {
+        status.textContent = 'Server-IP: ' + ip + ' (bitte manuell kopieren)';
+      }
+    }
+  </script>
+</body>
+</html>
